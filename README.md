@@ -1,6 +1,7 @@
 grocery-shopping
 
 compare on-hand to order-threshold to determine how much of each item to buy
+
 ie: if you have less than 4 eggs, buy 12 eggs
 
 party planning - how many people, pizza or taco menu
