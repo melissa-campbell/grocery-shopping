@@ -1,10 +1,6 @@
 namespace GroceryShopping
 {
     class Food{
-        public string Name;
-        public int OnHandQty;
-        public int OrderThreshold;
-        public int OrderQty;
 
         public Food(string name, int onHandQty, int orderThreshold, int orderQty)
         {
@@ -14,11 +10,11 @@ namespace GroceryShopping
             OrderQty = orderQty;
         }
 
-        // public Food(string name, int onHandQty)
-        // {
-        //     Name = name;
-        //     OnHandQty = onHandQty;
-        // }
+        public string Name {get; set;}
+        public int OnHandQty {get; set;}
+        public int OrderThreshold { get; set; }
+        public int OrderQty {get; set;}
+  
         
     }
 }
