@@ -55,7 +55,6 @@ namespace GroceryShopping
                 foreach (Food f in partyFood)
                 {
                     Console.WriteLine(f.Name + " " +f.OrderQty*guestCount+ " "+ f.UnitOfMeasure);
-
                 }
             }
             if (menu == "Pizza") // Pizza
@@ -71,7 +70,6 @@ namespace GroceryShopping
                 foreach (Food f in partyFood)
                 {
                     Console.WriteLine(f.Name + " " +f.OrderQty*guestCount+ " "+ f.UnitOfMeasure);
-
                 }
             }
         }
@@ -82,7 +80,6 @@ namespace GroceryShopping
             string numberGuests = Console.ReadLine();
             Console.WriteLine("You have {0} guests", numberGuests);
             return numberGuests;
-
         }
 
         static public string DetermineDinnerMenu()
@@ -100,11 +97,8 @@ namespace GroceryShopping
                 menu = "Pizza";
             }
             Console.WriteLine("You will be serving {0}", menu);
-            
             return menu;
-        
         }
-
            
         static void Main(string[] args)
         {
@@ -142,7 +136,6 @@ namespace GroceryShopping
                         break;
                 }
             }
-           
         }
     }
 }

@@ -16,7 +16,5 @@ namespace GroceryShopping
         public int OrderThreshold { get; set; }
         public int OrderQty {get; set;}
         public string UnitOfMeasure { get; set; }
-  
-        
     }
 }
