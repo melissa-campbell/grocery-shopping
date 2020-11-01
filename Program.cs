@@ -35,7 +35,46 @@ namespace GroceryShopping
             }
         }
 
-          
+        static void ThrowParty()
+        {
+            string guestCount = DetermineGuestCount();
+            string menu = DetermineDinnerMenu();
+      
+
+            
+
+        }
+
+        static public string DetermineGuestCount()
+        {
+            Console.WriteLine("How many guests?");
+            string numberGuests = Console.ReadLine();
+            Console.WriteLine("You have {0} guests", numberGuests);
+            return numberGuests;
+
+        }
+
+        static public string DetermineDinnerMenu()
+        {
+            Console.WriteLine("What would you like to serve?");
+            Console.WriteLine("0 for Tacos");
+            Console.WriteLine("1 for Pizza");
+            string menu = Console.ReadLine();
+            if (menu == "0")
+            {
+                menu = "Tacos";
+            }
+            if (menu == "1")
+            {
+                menu = "Pizza";
+            }
+            Console.WriteLine("You will be serving {0}", menu);
+            Console.WriteLine("You will need to buy X for the party");
+            return menu;
+        
+        }
+
+           
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to the Grocery Shopping Assistant!");
@@ -47,7 +86,7 @@ namespace GroceryShopping
                 Console.WriteLine("What would you like to do?");
                 Console.WriteLine("0 to Quit");
                 Console.WriteLine("1 to View List");
-                Console.WriteLine("2 to Add more functionality... hmmmmm!");
+                Console.WriteLine("2 to Throw Party!!!!");
 
                 string option = Console.ReadLine();
 
@@ -62,22 +101,17 @@ namespace GroceryShopping
                         //view list
                         Console.WriteLine("You entered 1 to View List");
                         ViewList();
-                        Thread.Sleep(2000);
+                        Thread.Sleep(1000);
                         break;
                     case "2":
-                        //go shopping
-                        Console.WriteLine("You entered 2 to Go Shopping!");
-                        //GoShopping();
+                        //throw party
+                        Console.WriteLine("You entered 2 to Throw Party!");
+                        ThrowParty();
+                        Thread.Sleep(1000);
                         break;
                 }
             }
-            
-            
-
-
-            
-
-
+           
         }
     }
 }
