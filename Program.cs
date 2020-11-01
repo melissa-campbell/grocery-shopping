@@ -10,6 +10,28 @@ namespace GroceryShopping
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to the Grocery Shopping Assistant!");
+            Console.WriteLine("What would you like to do?");
+            Console.WriteLine("0 to Quit");
+            Console.WriteLine("1 to View List");
+            Console.WriteLine("2 to Go Shopping!");
+
+            string option = Console.ReadLine();
+
+            switch (option)
+            {
+                case "0":
+                    Console.WriteLine("You entered 0 to Quit");
+                    return;
+                case "1":
+                    //view list
+                    Console.WriteLine("You entered 1 to View List");
+                    break;
+                case "2":
+                    //go shopping
+                    Console.WriteLine("You entered 2 to Go Shopping!");
+                    break;
+            }
+            
             //check inventory
             //compare on hand vs order thresholds
             //compose list of what is needed
