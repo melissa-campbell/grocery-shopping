@@ -15,7 +15,7 @@ namespace GroceryShopping
             //List<> feature
             var pantry = new List<Food>
             {
-                // Food(string name, int onHandQty, int orderThreshold, int orderQty)
+                // Food(string name, int onHandQty, int orderThreshold, int orderQty, string UnitOfMeasure)
                 new Food("Egg", 0, 4, 12, "Each"),
                 new Food("Spinach", 0, 1, 1, "Pounds"),
                 new Food("Tomatoes", 0, 1, 1, "Pounds"),
@@ -42,7 +42,7 @@ namespace GroceryShopping
             int guestCount = int.Parse(DetermineGuestCount());
             string menu = DetermineDinnerMenu();
 
-            if (menu == "Tacos")  // Tacos
+            if (menu == "Tacos")   
             {
                 Food[] partyFood = {              
                 new Food("Ground Beef", 0, 0, 4, "Ounces"), 
@@ -57,7 +57,7 @@ namespace GroceryShopping
                     Console.WriteLine(f.Name + " " +f.OrderQty*guestCount+ " "+ f.UnitOfMeasure);
                 }
             }
-            if (menu == "Pizza") // Pizza
+            if (menu == "Pizza")  
             {
                 Food[] partyFood = {              
                 new Food("Cheese", 0, 0, 2, "Slices"), 
@@ -66,10 +66,11 @@ namespace GroceryShopping
                 };
 
                 Console.WriteLine("Party Shopping List");
-            
+
+                //Convert 8 slices = 1 pizza.  Add 1 more pizza per flavor for late night.
                 foreach (Food f in partyFood)
                 {
-                    Console.WriteLine(f.Name + " " +f.OrderQty*guestCount+ " "+ f.UnitOfMeasure);
+                    Console.WriteLine(f.Name + " " +((f.OrderQty*guestCount)/8 + 1 )+ " Pizzas");
                 }
             }
         }
