@@ -15,7 +15,7 @@ Features:
 * Multi Dimensional Arrays
 * Methods with and without return types
 * Sleep
-* Foreach
+* ForEach
 * Switch/Case
 * Color
 
