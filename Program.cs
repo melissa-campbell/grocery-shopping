@@ -15,12 +15,12 @@ namespace GroceryShopping
             //List<> feature
             var pantry = new List<Food>
             {
-                // Food(string name, int onHandQty, int orderThreshold, int orderQty, string UnitOfMeasure)
-                new Food("Egg", 0, 4, 12, "Each"),
-                new Food("Spinach", 0, 1, 1, "Pounds"),
-                new Food("Tomatoes", 0, 1, 1, "Pounds"),
-                new Food("Milk", 2, 6, 8, "Gallons"),
-                new Food("Coffee", 5, 0, 4, "Pounds")
+                new Food{Name = "Egg", OrderThreshold = 4, OrderQty = 12, UnitOfMeasure = "Each"},
+                new Food{Name = "Spinach", OrderThreshold = 1, OrderQty = 1, UnitOfMeasure = "Pounds"},
+                new Food{Name = "Tomatoes", OrderThreshold = 4, OrderQty = 8, UnitOfMeasure = "Each"},
+                new Food{Name = "Milk", OnHandQty = 2, OrderThreshold = 1, OrderQty = 1, UnitOfMeasure = "Gallons"},
+                new Food{Name = "Coffee", OrderThreshold = 4, OrderQty = 12, UnitOfMeasure = "Pounds"},
+                new Food{Name = "Potatoes", OnHandQty = 5, OrderThreshold = 1, OrderQty = 1, UnitOfMeasure = "Pounds"}
             };
 
             //LINQ feature
@@ -29,12 +29,28 @@ namespace GroceryShopping
                 where i.OnHandQty < i.OrderThreshold
                 select i;
 
+            SetColor(ConsoleColor.Green);
             Console.WriteLine("Standard Grocery List");
+            Console.ResetColor();
             //Display list of what to buy and how much to buy to user
             foreach (var v in groceryList)
             {
-                Console.WriteLine(v.Name +" - " +v.OrderQty);
+                Console.WriteLine(v.Name +" - " +v.OrderQty + " " +v.UnitOfMeasure);
             }
+        }
+
+        static void WriteHeader(string menu)
+        {
+            Console.WriteLine();
+            SetColor(ConsoleColor.Green);
+            Console.WriteLine("{0} Party Shopping List", menu);
+            Console.ResetColor();
+        
+        }
+
+        static void SetColor(ConsoleColor color)
+        {
+            Console.ForegroundColor = color;
         }
 
         static void ThrowParty()
@@ -45,12 +61,15 @@ namespace GroceryShopping
             if (menu == "Tacos")   
             {
                 Food[] partyFood = {              
-                new Food("Ground Beef", 0, 0, 4, "Ounces"), 
-                new Food("Flour Tortillas", 0, 0, 3, "Each" ),
-                new Food("Corn Tortillas", 0, 0, 1, "Each" ),
-                new Food("Shredded Cheese", 0, 0, 2, "Ounces" ),
-                new Food("Hot Sauce", 0, 0, 1, "Ounces" )
+                new Food{Name = "Ground Beef", OrderQty = 4, UnitOfMeasure = "Ounces"},
+                new Food{Name = "Flour Tortillas", OrderQty = 3, UnitOfMeasure = "Each"},
+                new Food{Name = "Corn Tortillas", OrderQty = 1, UnitOfMeasure = "Each"},
+                new Food{Name = "Shredded Cheese", OrderQty = 2, UnitOfMeasure = "Ounces"},
+                new Food{Name = "Hot Sauce", OrderQty = 1, UnitOfMeasure = "Ounces"},
+                new Food{Name = "Jalepenos", OrderQty = 1, UnitOfMeasure = "Ounce"}
                 };
+
+                WriteHeader("Taco");                
             
                 foreach (Food f in partyFood)
                 {
@@ -59,13 +78,13 @@ namespace GroceryShopping
             }
             if (menu == "Pizza")  
             {
-                Food[] partyFood = {              
-                new Food("Cheese", 0, 0, 2, "Slices"), 
-                new Food("Meat", 0, 0, 1, "Slices" ),
-                new Food("Veggie", 0, 0, 1, "Slices" ),
+                Food[] partyFood = {      
+                new Food{Name = "Cheese", OrderQty = 2, UnitOfMeasure = "Slices"},
+                new Food{Name = "Meat", OrderQty = 1, UnitOfMeasure = "Slices"},
+                new Food{Name = "Veggie", OrderQty = 1, UnitOfMeasure = "Slices"}
                 };
 
-                Console.WriteLine("Party Shopping List");
+                WriteHeader(menu);
 
                 //Convert 8 slices = 1 pizza.  Add 1 more pizza per flavor for late night.
                 foreach (Food f in partyFood)
@@ -89,6 +108,8 @@ namespace GroceryShopping
             Console.WriteLine("0 for Tacos");
             Console.WriteLine("1 for Pizza");
             string menu = Console.ReadLine();
+            Console.WriteLine();
+
             if (menu == "0")
             {
                 menu = "Tacos";
@@ -103,25 +124,32 @@ namespace GroceryShopping
            
         static void Main(string[] args)
         {
+            SetColor(ConsoleColor.Red);
             Console.WriteLine("Welcome to the Grocery Shopping Assistant!");
             bool keepGoing = true;
 
             //Master Loop feature
             while ( keepGoing == true)
             {
+                Console.WriteLine();
+                SetColor(ConsoleColor.Blue);
                 Console.WriteLine("What would you like to do?");
+                Console.ResetColor();
                 Console.WriteLine("0 to Quit");
                 Console.WriteLine("1 to View Standard Grocery List");
                 Console.WriteLine("2 to Throw Party!!!!");
 
                 string option = Console.ReadLine();
+                Console.WriteLine();
 
                 switch (option)
                 {
                     case "0":
                         Console.WriteLine("You entered 0 to Quit");
                         keepGoing = false;
+                        SetColor(ConsoleColor.Green);
                         Console.WriteLine("Goodbye");
+                        Console.ResetColor();
                         return;
                     case "1":
                         //view list
